@@ -1123,8 +1123,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1852992010527332426, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: SidewaysForce
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852992010527332426, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: PlayerRigidbody
+      value: 
+      objectReference: {fileID: 1199824172}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+--- !u!54 &1199824172 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1852992010527332427, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+  m_PrefabInstance: {fileID: 1199824171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1211460715
 PrefabInstance:
   m_ObjectHideFlags: 0
