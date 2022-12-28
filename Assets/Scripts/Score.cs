@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Score : MonoBehaviour
 {
-public Transform player;
-public Text scoreText;
+public Transform Player;
+public TextMeshProUGUI ScoreText;
     void Update() 
     {
-        scoreText.text = player.position.z.ToString("0");
+        ScoreText.text = Player.position.z.ToString("0");
     }
 }
