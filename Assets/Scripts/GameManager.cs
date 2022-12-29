@@ -1,24 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
-    public float restartDelay = 1f;
-    public GameObject completeLevelUI;
+    public float RestartDelay = 1f;
+    public GameObject CompleteLevelUI;
     public void CompleteLevel ()
     {
-        completeLevelUI.SetActive(true);
+        CompleteLevelUI.SetActive(true);
     }
     public void EndGame ()
     {
-    if (gameHasEnded == false)
+        if (GameHasEnded == false)
+        {
+            GameHasEnded = true;
+            StartCoroutine(RestartCoroutine(RestartDelay));
+        }
+    }
+
+    IEnumerator RestartCoroutine(float RestartDelay)
     {
-        gameHasEnded = true;
-        Invoke("Restart", restartDelay);
+        yield return new WaitForSeconds(RestartDelay);
+        Restart();
     }
-    }
-    void Restart()
+    private bool GameHasEnded = false;
+    private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
