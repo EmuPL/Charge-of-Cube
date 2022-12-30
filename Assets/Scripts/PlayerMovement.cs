@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float ForwardForce = 2000f;
     public float SidewaysForce = 500f;
 
-    private const float UNDER_PLATFORM = -1f;
+    private const float UNDER_PLATFORM = 0f;
     
     private void FixedUpdate()
     {
