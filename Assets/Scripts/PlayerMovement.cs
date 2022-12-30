@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float SidewaysForce = 500f;
 
     private const float UNDER_PLATFORM = -1f;
+    
     private void FixedUpdate()
     {
         PlayerRigidbody.AddForce(0, 0, ForwardForce * Time.deltaTime);
