@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public PlayerMovement Movement;
-    public GameManager GameManager;
+    public PlayerMovement Movement = null;
+    public GameManager GameManager = null;
 
     private void OnCollisionEnter(Collision collisionInfo)
     {
