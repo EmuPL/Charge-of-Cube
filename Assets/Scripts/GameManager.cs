@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator RestartCoroutine(float RestartDelay)
+    private IEnumerator RestartCoroutine(float RestartDelay)
     {
         yield return new WaitForSeconds(RestartDelay);
         Restart();
