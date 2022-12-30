@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.45260894, g: 0.5019951, b: 0.5818987, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541390578}
   m_Layer: 0
-  m_Name: Obsrakle
+  m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2085,6 +2085,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093430824416094940, guid: 18fc7294bf926584f9b53880a41221af, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093430824416094940, guid: 18fc7294bf926584f9b53880a41221af, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093430824416094940, guid: 18fc7294bf926584f9b53880a41221af, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093430824416094940, guid: 18fc7294bf926584f9b53880a41221af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2212,7 +2224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3727974340098543376, guid: 5facd1bfe20805444acd7f7122d8c1b4, type: 3}
       propertyPath: m_Name
-      value: END
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 3727974340098543380, guid: 5facd1bfe20805444acd7f7122d8c1b4, type: 3}
       propertyPath: m_RootOrder
