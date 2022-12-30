@@ -1,33 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Explosion : MonoBehaviour
 {
-    public float cubeSize = 0.2f;
-    public int cubesInRow = 5;
-    public float explosionForce = 50f;
-    public float explosionRadius = 4f;
-    public float explosionUpward = 0.4f;
+    public float CubeSize = 0.2f;
+    public int CubesInRow = 5;
+    public float ExplosionForce = 50f;
+    public float ExplosionRadius = 5f;
+    public float ExplosionUpward = 0.3f;
     public Rigidbody PlayerRigidbody = null;
 
-    private float cubesPivotDistance;
-    private Vector3 cubesPivot;
+    private float CubesPivotDistance;
+    private Vector3 CubesPivot;
     private const float UNDER_PLATFORM = -1f;
 
     private void Start()
     {
-        cubesPivotDistance = cubeSize * cubesInRow / 2;
-        cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
-
+        CubesPivotDistance = CubeSize * CubesInRow / 2;
+        CubesPivot = new Vector3(CubesPivotDistance, CubesPivotDistance, CubesPivotDistance);
     }
 
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.CompareTag("Obstacle"))
         {
-            explode();
+            Explode();
         }
     }
 
@@ -35,20 +31,19 @@ public class Explosion : MonoBehaviour
     {
         if (PlayerRigidbody.position.y < UNDER_PLATFORM)
         {
-            explode();
+            Explode();
         }
     }
 
-
-    public void explode()
+    public void Explode()
     {
         gameObject.SetActive(false);
-        
-        for (int x = 0; x < cubesInRow; x++)
+
+        for (int x = 0; x < CubesInRow; x++)
         {
-            for (int y = 0; y < cubesInRow; y++)
+            for (int y = 0; y < CubesInRow; y++)
             {
-                for (int z = 0; z < cubesInRow; z++)
+                for (int z = 0; z < CubesInRow; z++)
                 {
                     createPiece(x, y, z);
                 }
@@ -56,13 +51,13 @@ public class Explosion : MonoBehaviour
         }
 
         Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, ExplosionRadius);
         foreach (Collider hit in colliders)
         {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb != null)
+            Rigidbody PlayerRigidbody = hit.GetComponent<Rigidbody>();
+            if (PlayerRigidbody != null)
             {
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+                PlayerRigidbody.AddExplosionForce(ExplosionForce, transform.position, ExplosionRadius, ExplosionUpward);
             }
         }
 
@@ -72,10 +67,10 @@ public class Explosion : MonoBehaviour
     {
         GameObject piece;
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubesPivot;
-        piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
+        piece.transform.position = transform.position + new Vector3(CubeSize * x, CubeSize * y, CubeSize * z) - CubesPivot;
+        piece.transform.localScale = new Vector3(CubeSize, CubeSize, CubeSize);
         piece.AddComponent<Rigidbody>();
-        piece.GetComponent<Rigidbody>().mass = cubeSize;
+        piece.GetComponent<Rigidbody>().mass = CubeSize;
         piece.GetComponent<MeshRenderer>().material.color = Color.green;
         piece.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1f, ForceMode.Impulse);
     }

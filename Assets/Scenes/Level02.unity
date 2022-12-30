@@ -1631,6 +1631,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1909994}
     - target: {fileID: 7915624620374268912, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: ExplosionRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915624620374268912, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: ExplosionUpward
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915624620374268912, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
       propertyPath: PlayerRigidbody
       value: 
       objectReference: {fileID: 1629443967}
