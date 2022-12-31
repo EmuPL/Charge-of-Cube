@@ -1630,6 +1630,14 @@ PrefabInstance:
       propertyPath: GameManager
       value: 
       objectReference: {fileID: 1909994}
+    - target: {fileID: 4182767711674591952, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1629443969}
+    - target: {fileID: 4182767711674591952, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+      propertyPath: PlayerRigidbody
+      value: 
+      objectReference: {fileID: 1629443967}
     - target: {fileID: 7915624620374268912, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
       propertyPath: ExplosionRadius
       value: 5
@@ -1666,6 +1674,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80ad4d93620995a4e9aa545980c9e864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1629443969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7915624620374268912, guid: 9605ea80ff514bb4cb3b8e53ce1f8c8f, type: 3}
+  m_PrefabInstance: {fileID: 1629443966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82644dbb70fb264cb849e40f215054e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1649873561
