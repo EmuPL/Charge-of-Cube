@@ -9,9 +9,9 @@ public class Explosion : MonoBehaviour
     public float ExplosionUpward = 0.3f;
     public Rigidbody PlayerRigidbody = null;
 
-    private float CubesPivotDistance;
-    private Vector3 CubesPivot;
-    private const float UNDER_PLATFORM = -1f;
+    private float CubesPivotDistance = 0f;
+    private Vector3 CubesPivot = new Vector3(0f, 0f, 0f);
+
 
     private void Start()
     {
@@ -22,14 +22,6 @@ public class Explosion : MonoBehaviour
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.CompareTag("Obstacle"))
-        {
-            Explode();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (PlayerRigidbody.position.y < UNDER_PLATFORM)
         {
             Explode();
         }
@@ -52,23 +44,24 @@ public class Explosion : MonoBehaviour
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, ExplosionRadius);
+
         foreach (Collider hit in colliders)
         {
             Rigidbody PlayerRigidbody = hit.GetComponent<Rigidbody>();
+
             if (PlayerRigidbody != null)
             {
                 PlayerRigidbody.AddExplosionForce(ExplosionForce, transform.position, ExplosionRadius, ExplosionUpward);
             }
         }
-
     }
 
     private void createPiece(int x, int y, int z)
     {
-        GameObject piece;
-        piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        GameObject piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
         piece.transform.position = transform.position + new Vector3(CubeSize * x, CubeSize * y, CubeSize * z) - CubesPivot;
         piece.transform.localScale = new Vector3(CubeSize, CubeSize, CubeSize);
+
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = CubeSize;
         piece.GetComponent<MeshRenderer>().material.color = Color.green;
